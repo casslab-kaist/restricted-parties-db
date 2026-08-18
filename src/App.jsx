@@ -34,7 +34,7 @@ export default function App() {
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await fetch('/data/restricted_parties.json')
+        const response = await fetch(`${import.meta.env.BASE_URL}data/restricted_parties.json`)
         if (!response.ok) throw new Error(`HTTP ${response.status}`)
         const data = await response.json()
         setRecords(Array.isArray(data) ? data : [])
